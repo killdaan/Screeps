@@ -6,8 +6,12 @@ var idealHarvesterAmount = 20
 
 if (Game.spawns['Spawn1'].energy == Game.spawns['Spawn1'].energyCapacity) {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+    if(harvesters.length == 0) {
+        Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], 'Harvester1', {role: 'harvester'});
+    }
     if(harvesters.length < idealHarvesterAmount) {
-        var newName = Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], 'Harvester' . (harvesters.length + 1), {role: 'harvester'});
+        var newNumber = harvesters.length + 1
+        Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], 'Harvester' + newNumber, {role: 'harvester'});
     }
 }
 
