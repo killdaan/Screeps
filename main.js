@@ -31,7 +31,7 @@ if (Game.spawns['Spawn1'].energy == Game.spawns['Spawn1'].energyCapacity) {
         Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], 'Builder1', {role: 'builder'});
     }
     if(builders.length < idealBuilderAmount) {
-        var newNumber = builder.length + 1
+        var newNumber = builders.length + 1
         Game.spawns['Spawn1'].createCreep([WORK,CARRY,MOVE], 'Builder' + newNumber, {role: 'builder'});
     }
 }
