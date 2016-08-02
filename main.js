@@ -11,11 +11,15 @@ var idealBuilderAmount = 20
 module.exports.loop = function () {
 
     if (Game.spawns['Spawn1'].energy == Game.spawns['Spawn1'].energyCapacity) {
-        spawner.run(creep);
+        spawner.run(idealHarvesterAmount, idealUpgraderAmount, idealBuilderAmount);
     }
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
+        if(creep.ticksToLive == 0) {
+            creep.memory = nil;
+        }
+
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
         }
